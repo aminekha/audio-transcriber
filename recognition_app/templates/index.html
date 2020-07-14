@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Speech Recognition</title>
+    </head>
+    <style>
+
+body {
+  text-align: justify;
+  color: #efd;
+  background: #082838;
+}
+
+p {
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  margin: 0;
+  font: 18px "PT Serif", serif;
+  /* -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); */
+}
+/* p::first-letter {
+  float: left;
+  margin-right: 9px;
+  line-height: 1em;
+  font-size: 260%;
+}
+p::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+} */
+
+
+    </style>
+
+    <body>
+        <div class="main">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p }}
+                <input type="submit" value="Transcribe">
+            </form>
+
+            <p>
+                Transcription: 
+                {{ transcription }}
+            </p>
+        </div>
+    </body>
+
+    <!-- <script>
+        (function () {
+  var angle = 0;
+  var p = document.querySelector("p");
+  var text = p.textContent.split("");
+  var len = text.length;
+  var phaseJump = 360 / len;
+  var spans;
+
+  p.innerHTML = text
+    .map(function (char) {
+      return "<span>" + char + "</span>";
+    })
+    .join("");
+
+  spans = p.children;
+
+  (function wheee() {
+    for (var i = 0; i < len; i++) {
+      spans[i].style.color =
+        "hsl(" + (angle + Math.floor(i * phaseJump)) + ", 55%, 70%)";
+    }
+    angle++;
+    requestAnimationFrame(wheee);
+  })();
+})();
+
+    </script> -->
+</html>

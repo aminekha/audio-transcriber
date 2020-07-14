@@ -1,0 +1,2 @@
+SpeechRecognition
+Django==3.0.8
